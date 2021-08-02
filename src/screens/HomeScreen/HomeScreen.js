@@ -1,19 +1,18 @@
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import styles from './styles';
-import { firebase } from '../../firebase/config';
+import useAuthStore from '../../stores/AuthStore';
 
 export default function HomeScreen(props) {
+    const signOut = useAuthStore(state => state.signOut);
+
     const onSignOutButtonPress = () => {
-        firebase
-            .auth()
-            .signOut()
-            .then(() =>
-                props.navigation.reset({
-                    index: 0,
-                    routes: [{ name: 'Login' }],
-                })
-            );
+        signOut().then(() =>
+            props.navigation.reset({
+                index: 0,
+                routes: [{ name: 'Login' }],
+            })
+        );
     };
 
     return (
