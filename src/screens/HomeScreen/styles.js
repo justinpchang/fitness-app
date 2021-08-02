@@ -15,12 +15,12 @@ export default StyleSheet.create({
         borderRadius: 5,
         backgroundColor: '#788eec',
         width: 80,
-        alignItems: "center",
+        alignItems: 'center',
         justifyContent: 'center',
         marginTop: 20,
     },
     buttonText: {
         color: 'white',
-        fontSize: 16
+        fontSize: 16,
     },
 });
