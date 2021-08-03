@@ -2,10 +2,10 @@ import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import styles from './styles';
 import useAuthStore from '../../stores/AuthStore';
+import { signOut } from '../../utils/AuthUtils';
 
 export default function HomeScreen({ navigation }) {
     const user = useAuthStore((state) => state.user);
-    const signOut = useAuthStore((state) => state.signOut);
 
     const onSignOutButtonPress = () => {
         signOut();
