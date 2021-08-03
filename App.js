@@ -8,6 +8,7 @@ import {
     RegistrationScreen,
     OnboardingScreen,
     FocusScreen,
+    WorkoutSettingsScreen,
 } from './src/screens';
 import useAuthStore from './src/stores/AuthStore';
 import { decode, encode } from 'base-64';
@@ -42,6 +43,7 @@ export default function App() {
                         <Stack.Screen name="Home" component={HomeScreen} />
                         <Stack.Screen name="Onboarding" component={OnboardingScreen} />
                         <Stack.Screen name="Focus" component={FocusScreen} />
+                        <Stack.Screen name="Workout Settings" component={WorkoutSettingsScreen} />
                     </>
                 ) : (
                     <>

@@ -32,7 +32,8 @@ export default function FocusScreen({ navigation }) {
 
 	const selectFocus = () => {
 		if (isNaN(selectedFocusIndex) || !modalVisible) return;
-		alert(`Selected focus ${foci[selectedFocusIndex].name}`);
+        navigation.navigate('Workout Settings');
+        setModalVisible(false);
 	};
 
 	return (
