@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import styles from './styles';
-import { firebase } from '../../firebase/config';
 import useAuthStore from '../../stores/AuthStore.js';
 
 export default function LoginScreen({ navigation }) {
@@ -15,9 +14,7 @@ export default function LoginScreen({ navigation }) {
     };
 
     const onLoginPress = () => {
-        signIn({ email, password }).then(() => {
-            navigation.navigate('Home');
-        });
+        signIn({ email, password });
     };
 
     return (

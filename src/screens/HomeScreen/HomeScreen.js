@@ -8,12 +8,7 @@ export default function HomeScreen({ navigation }) {
     const signOut = useAuthStore((state) => state.signOut);
 
     const onSignOutButtonPress = () => {
-        signOut().then(() =>
-            navigation.reset({
-                index: 0,
-                routes: [{ name: 'Login' }],
-            })
-        );
+        signOut();
     };
 
     return (

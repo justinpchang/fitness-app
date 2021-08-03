@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import styles from './styles';
-import { firebase } from '../../firebase/config';
 import useAuthStore from '../../stores/AuthStore';
 
 export default function RegistrationScreen({ navigation }) {
@@ -22,9 +21,7 @@ export default function RegistrationScreen({ navigation }) {
             return;
         }
 
-        signUp({ email, password, fullName }).then(() => {
-            navigation.navigate('Home');
-        });
+        signUp({ email, password, fullName });
     };
 
     return (
