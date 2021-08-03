@@ -15,7 +15,7 @@ export default function LoginScreen({ navigation }) {
     };
 
     const onLoginPress = () => {
-        signIn(email, password).then((user) => {
+        signIn({ email, password }).then((user) => {
             navigation.navigate('Home', { user });
         });
     };
