@@ -16,7 +16,6 @@ if (!global.atob) {
 const Stack = createStackNavigator();
 
 export default function App() {
-    const [loading, setLoading] = useState(true);
     const user = useAuthStore((state) => state.user);
     const loadingUser = useAuthStore((state) => state.loadingUser);
     const persistantSignIn = useAuthStore((state) => state.persistantSignIn);
