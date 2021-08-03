@@ -4,7 +4,7 @@ import { firebase } from '../firebase';
 
 const useAuthStore = create((set) => ({
 	user: null,
-	setUser: (newUser) => set({ user: newUser }),
+	loadingUser: true,
 	signIn: ({ email, password }) => {
 		return firebase
 			.auth()
@@ -17,14 +17,35 @@ const useAuthStore = create((set) => ({
 			}).then((doc) => {
 				if (!doc.exists) {
 					alert('User does not exist.');
+					set({ loadingUser: false });
 					return;
 				}
 				const user = doc.data();
-				set({ user });
+				set({ user, loadingUser: false });
 				return;
 			}).catch((err) => {
+				set({ loadingUser: false });
 				alert(err);
 			});
+	},
+	persistantSignIn: () => {
+		const usersRef = firebase.firestore().collection('users');
+		firebase.auth().onAuthStateChanged((user) => {
+			if (user) {
+				usersRef
+					.doc(user.uid)
+					.get()
+					.then((doc) => {
+						const user = doc.data();
+						set({ user, loadingUser: false });
+					}).catch((err) => {
+						alert(err);
+						set({ loadingUser: false });
+					});
+			} else {
+				set({ loadingUser: false });
+			}
+		});
 	},
 	signUp: ({ email, password, fullName }) => {
 		return firebase
@@ -39,12 +60,14 @@ const useAuthStore = create((set) => ({
 				};
 				const usersRef = firebase.firestore().collection('users');
 				return usersRef.doc(uid).set(data).then((user) => {
-					set({ user });
+					set({ user, loadingUser: false });
 					return;
 				}).catch((err) => {
+					set({ loadingUser: false });
 					alert(err);
 				});
 			}).catch((err) => {
+				set({ loadingUser: false });
 				alert(err);
 			});
 	},
