@@ -22,8 +22,8 @@ export default function RegistrationScreen({ navigation }) {
             return;
         }
 
-        signUp({ email, password, fullName }).then((user) => {
-            navigation.navigate('Home', { user });
+        signUp({ email, password, fullName }).then(() => {
+            navigation.navigate('Home');
         });
     };
 

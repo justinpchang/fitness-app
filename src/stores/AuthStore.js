@@ -4,6 +4,7 @@ import { firebase } from '../firebase';
 
 const useAuthStore = create((set) => ({
 	user: null,
+	setUser: (newUser) => set({ user: newUser }),
 	signIn: ({ email, password }) => {
 		return firebase
 			.auth()
@@ -18,7 +19,9 @@ const useAuthStore = create((set) => ({
 					alert('User does not exist.');
 					return;
 				}
-				return doc.data();
+				const user = doc.data();
+				set({ user });
+				return;
 			}).catch((err) => {
 				alert(err);
 			});
@@ -35,7 +38,10 @@ const useAuthStore = create((set) => ({
 					fullName,
 				};
 				const usersRef = firebase.firestore().collection('users');
-				return usersRef.doc(uid).set(data).catch((err) => {
+				return usersRef.doc(uid).set(data).then((user) => {
+					set({ user });
+					return;
+				}).catch((err) => {
 					alert(err);
 				});
 			}).catch((err) => {

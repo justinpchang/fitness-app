@@ -4,6 +4,7 @@ import { firebase } from './src/firebase/config';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { LoginScreen, HomeScreen, RegistrationScreen } from './src/screens';
+import useAuthStore from './src/stores/AuthStore';
 import { decode, encode } from 'base-64';
 if (!global.btoa) {
     global.btoa = encode;
@@ -16,7 +17,7 @@ const Stack = createStackNavigator();
 
 export default function App() {
     const [loading, setLoading] = useState(true);
-    const [user, setUser] = useState(null);
+    const setUser = useAuthStore(state => state.setUser);
 
     useEffect(() => {
         const usersRef = firebase.firestore().collection('users');
@@ -47,7 +48,7 @@ export default function App() {
         <NavigationContainer>
             <Stack.Navigator>
                 <Stack.Screen name="Home">
-                    {(props) => <HomeScreen {...props} user={user} />}
+                    {(props) => <HomeScreen {...props} />}
                 </Stack.Screen>
                 <Stack.Screen name="Login" component={LoginScreen} />
                 <Stack.Screen
