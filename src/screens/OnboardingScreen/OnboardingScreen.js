@@ -61,6 +61,7 @@ export default function OnboardingScreen({ navigation }) {
 
 	const onNextPress = () => {
 		updateMetrics({ uid: user.id, height, weight, age });
+        navigation.navigate('Focus');
 	};
 
 	return (
