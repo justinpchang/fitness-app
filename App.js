@@ -1,6 +1,5 @@
 import 'react-native-gesture-handler';
-import React, { useEffect, useState } from 'react';
-import { firebase } from './src/firebase/config';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { LoginScreen, HomeScreen, RegistrationScreen } from './src/screens';
@@ -20,7 +19,7 @@ export default function App() {
     const loadingUser = useAuthStore((state) => state.loadingUser);
     const persistantSignIn = useAuthStore((state) => state.persistantSignIn);
 
-    useEffect(() => {
+    React.useEffect(() => {
         persistantSignIn();
     }, []);
 

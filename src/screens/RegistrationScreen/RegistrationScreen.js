@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import styles from './styles';
 import useAuthStore from '../../stores/AuthStore';
 
 export default function RegistrationScreen({ navigation }) {
-    const [fullName, setFullName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
+    const [fullName, setFullName] = React.useState('');
+    const [email, setEmail] = React.useState('');
+    const [password, setPassword] = React.useState('');
+    const [confirmPassword, setConfirmPassword] = React.useState('');
     const signUp = useAuthStore((state) => state.signUp);
 
     const onFooterLinkPress = () => {
