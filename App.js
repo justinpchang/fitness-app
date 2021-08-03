@@ -2,7 +2,12 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { LoginScreen, HomeScreen, RegistrationScreen } from './src/screens';
+import {
+    LoginScreen,
+    HomeScreen,
+    RegistrationScreen,
+    OnboardingScreen,
+} from './src/screens';
 import useAuthStore from './src/stores/AuthStore';
 import { decode, encode } from 'base-64';
 if (!global.btoa) {
@@ -34,6 +39,7 @@ export default function App() {
                 {user ? (
                     <>
                         <Stack.Screen name="Home" component={HomeScreen} />
+                        <Stack.Screen name="Onboarding" component={OnboardingScreen} />
                     </>
                 ) : (
                     <>

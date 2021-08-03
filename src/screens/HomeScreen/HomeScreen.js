@@ -11,6 +11,10 @@ export default function HomeScreen({ navigation }) {
         signOut();
     };
 
+    const gotoOnboarding = () => {
+        navigation.navigate('Onboarding');
+    };
+
     return (
         <View style={styles.container}>
             {user?.fullName && (
@@ -21,6 +25,12 @@ export default function HomeScreen({ navigation }) {
                 onPress={onSignOutButtonPress}
             >
                 <Text style={styles.buttonText}>Sign out</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+                style={styles.button}
+                onPress={gotoOnboarding}
+            >
+                <Text style={styles.buttonText}>Onboarding</Text>
             </TouchableOpacity>
         </View>
     );
