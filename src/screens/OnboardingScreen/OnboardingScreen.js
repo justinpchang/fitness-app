@@ -25,7 +25,6 @@ export default function OnboardingScreen({ navigation }) {
 	}, []);
 
 	React.useEffect(() => {
-		console.log(metrics);
 		setHeight(metrics.height);
 		setWeight(metrics.weight);
 		setAge(metrics.age);
