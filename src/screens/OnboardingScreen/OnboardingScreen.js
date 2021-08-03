@@ -34,7 +34,7 @@ export default function OnboardingScreen({ navigation }) {
 	const generateHeightOptions = React.useMemo(() => {
 		let opts = [];
 		for (let ft = 3; ft <= 7; ft++) {
-			for (let inch = 0; inch <= 12; inch++) {
+			for (let inch = 0; inch < 12; inch++) {
 				const fmt = `${ft}' ${inch}"`;
 				opts.push(<Picker.Item key={fmt} label={fmt} value={fmt} />);
 			}
