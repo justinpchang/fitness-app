@@ -7,14 +7,6 @@ import { signOut } from '../../utils/AuthUtils';
 export default function HomeScreen({ navigation }) {
     const user = useAuthStore((state) => state.user);
 
-    const onSignOutButtonPress = () => {
-        signOut();
-    };
-
-    const gotoOnboarding = () => {
-        navigation.navigate('Onboarding');
-    };
-
     return (
         <View style={styles.container}>
             {user?.fullName && (
@@ -22,15 +14,21 @@ export default function HomeScreen({ navigation }) {
             )}
             <TouchableOpacity
                 style={styles.button}
-                onPress={onSignOutButtonPress}
+                onPress={() => signOut()}
             >
                 <Text style={styles.buttonText}>Sign out</Text>
             </TouchableOpacity>
             <TouchableOpacity
                 style={styles.button}
-                onPress={gotoOnboarding}
+                onPress={() => navigation.navigate('Onboarding')}
             >
                 <Text style={styles.buttonText}>Onboarding</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+                style={styles.button}
+                onPress={() => navigation.navigate('Focus')}
+            >
+                <Text style={styles.buttonText}>Select Focus</Text>
             </TouchableOpacity>
         </View>
     );

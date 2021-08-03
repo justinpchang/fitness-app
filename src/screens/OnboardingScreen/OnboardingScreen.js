@@ -16,9 +16,9 @@ export default function OnboardingScreen({ navigation }) {
 	const updateMetrics = useDataStore((state) => state.updateMetrics);
 	const user = useAuthStore((state) => state.user);
 
-	const [height, setHeight] = React.useState(null);
-	const [weight, setWeight] = React.useState(null);
-	const [age, setAge] = React.useState(null);
+	const [height, setHeight] = React.useState();
+	const [weight, setWeight] = React.useState();
+	const [age, setAge] = React.useState();
 
 	React.useEffect(() => {
 		getMetrics(user.id);
