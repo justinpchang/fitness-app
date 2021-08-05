@@ -36,6 +36,12 @@ export default function HomeScreen({ navigation }) {
             >
                 <Text style={styles.buttonText}>Set Workout Settings</Text>
             </TouchableOpacity>
+            <TouchableOpacity
+                style={styles.button}
+                onPress={() => navigation.navigate('Workout Player')}
+            >
+                <Text style={styles.buttonText}>Workout Player</Text>
+            </TouchableOpacity>
         </View>
     );
 }
