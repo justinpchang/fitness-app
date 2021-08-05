@@ -10,8 +10,9 @@ import styles from './styles';
 export default function ProgressBar({
     duration,
     currentPosition,
+    onStartSeek,
     onSeek,
-    pause,
+    onFinishSeek,
 }) {
     const elapsed = minutesAndSeconds(currentPosition);
     const remaining = minutesAndSeconds(duration - currentPosition);
@@ -21,8 +22,9 @@ export default function ProgressBar({
             <Slider
                 style={styles.slider}
                 maximumValue={Math.max(duration, 1, currentPosition + 1)}
-                onSlidingStart={pause}
-                onSlidingComplete={onSeek}
+                onSlidingStart={onStartSeek}
+                onValueChange={onSeek}
+                onSlidingComplete={onFinishSeek}
                 value={currentPosition}
                 minimumTrackTintColor='black'
                 maximumTrackTintColor='grey'

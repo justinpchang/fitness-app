@@ -12,6 +12,7 @@ const barHz = 5;
 
 export default function Player() {
     const [paused, setPaused] = React.useState(true);
+    const [wasPaused, setWasPaused] = React.useState(true);
     const [duration, setDuration] = React.useState(length);
     const [currentPosition, setCurrentPosition] = React.useState(0);
 
@@ -25,13 +26,27 @@ export default function Player() {
         }
     }, 1000 / barHz);
 
+    const onStartSeek = () => {
+        setWasPaused(paused);
+        setPaused(true);
+    };
+
+    const onSeek = (pos) => {
+        setCurrentPosition(pos);
+    };
+
+    const onFinishSeek = () => {
+        setPaused(wasPaused);
+    };
+
     return (
         <View styles={styles.playerContainer}>
             <ProgressBar
                 duration={duration}
                 currentPosition={currentPosition}
-                onSeek={(pos) => setCurrentPosition(pos)}
-                pause={() => setPaused(true)}
+                onStartSeek={onStartSeek}
+                onSeek={onSeek}
+                onFinishSeek={onFinishSeek}
             />
             <Controls
                 paused={paused}
