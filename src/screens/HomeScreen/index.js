@@ -13,7 +13,7 @@ export default function HomeScreen({ navigation }) {
 
     return (
         <>
-            <Header />
+            <Header navigation={navigation} />
             <View style={styles.container}>
                 <Text style={styles.firstName}>
                     {user?.fullName?.split(' ')?.[0]}
@@ -23,7 +23,13 @@ export default function HomeScreen({ navigation }) {
                 </Text>
                 <View style={styles.buttonsContainer}>
                     <IconButton
-                        icon={<Ionicons name="ios-person" size={20} color={COLORS.ORANGE} />}
+                        icon={
+                            <Ionicons
+                                name="ios-person"
+                                size={20}
+                                color={COLORS.ORANGE}
+                            />
+                        }
                         iconBackground
                         style={styles.navButton}
                         onPress={() => navigation.navigate('Focus')}
@@ -31,7 +37,13 @@ export default function HomeScreen({ navigation }) {
                         showArrow
                     />
                     <IconButton
-                        icon={<Ionicons name="analytics" size={20} color={COLORS.PURPLE} />}
+                        icon={
+                            <Ionicons
+                                name="analytics"
+                                size={20}
+                                color={COLORS.PURPLE}
+                            />
+                        }
                         iconBackground
                         style={styles.navButton}
                         onPress={() => navigation.navigate('Onboarding')}
@@ -39,7 +51,13 @@ export default function HomeScreen({ navigation }) {
                         showArrow
                     />
                     <IconButton
-                        icon={<Ionicons name="settings-sharp" size={20} color={COLORS.BLUE} />}
+                        icon={
+                            <Ionicons
+                                name="settings-sharp"
+                                size={20}
+                                color={COLORS.BLUE}
+                            />
+                        }
                         iconBackground
                         style={styles.navButton}
                         onPress={() => navigation.navigate('Workout Settings')}
@@ -48,7 +66,13 @@ export default function HomeScreen({ navigation }) {
                     />
                 </View>
                 <IconButton
-                    icon={<Ionicons name="log-out-outline" size={25} color={COLORS.RED} />}
+                    icon={
+                        <Ionicons
+                            name="log-out-outline"
+                            size={25}
+                            color={COLORS.RED}
+                        />
+                    }
                     style={styles.signOutButton}
                     onPress={signOut}
                     text="Sign Out"
