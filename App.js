@@ -2,6 +2,7 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { COLORS } from './src/constants';
 import {
     LoginScreen,
     HomeScreen,
@@ -38,19 +39,35 @@ export default function App() {
 
     return (
         <NavigationContainer>
-            <Stack.Navigator>
+            <Stack.Navigator
+                screenOptions={{
+                    headerShown: false,
+                }}
+            >
                 {user ? (
                     <>
                         <Stack.Screen name="Home" component={HomeScreen} />
-                        <Stack.Screen name="Onboarding" component={OnboardingScreen} />
+                        <Stack.Screen
+                            name="Onboarding"
+                            component={OnboardingScreen}
+                        />
                         <Stack.Screen name="Focus" component={FocusScreen} />
-                        <Stack.Screen name="Workout Settings" component={WorkoutSettingsScreen} />
-                        <Stack.Screen name="Workout Player" component={WorkoutPlayerScreen} />
+                        <Stack.Screen
+                            name="Workout Settings"
+                            component={WorkoutSettingsScreen}
+                        />
+                        <Stack.Screen
+                            name="Workout Player"
+                            component={WorkoutPlayerScreen}
+                        />
                     </>
                 ) : (
                     <>
                         <Stack.Screen name="Login" component={LoginScreen} />
-                        <Stack.Screen name="Registration" component={RegistrationScreen} />
+                        <Stack.Screen
+                            name="Registration"
+                            component={RegistrationScreen}
+                        />
                     </>
                 )}
             </Stack.Navigator>
