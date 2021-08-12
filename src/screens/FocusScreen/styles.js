@@ -1,6 +1,25 @@
 import { StyleSheet } from 'react-native';
+import { COLORS } from '../../constants';
 
 export default StyleSheet.create({
+    container: {
+        flex: 1,
+        paddingTop: 35,
+        paddingLeft: 50,
+        backgroundColor: COLORS.GREY[0],
+    },
+    headerHelperText: {
+        fontFamily: 'Avenir-Medium',
+        fontSize: 40,
+        color: COLORS.GREY[3],
+    },
+    headerText: {
+        fontFamily: 'Avenir-Medium',
+        fontSize: 40,
+        color: COLORS.GREY[4],
+    },
+
+    /*
     container: {
         flex: 1,
         alignItems: 'center',
@@ -70,4 +89,5 @@ export default StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center',
     },
+    */
 });
