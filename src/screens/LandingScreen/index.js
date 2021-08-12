@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+    Image,
     Text,
     TouchableOpacity,
     View,
@@ -10,6 +11,12 @@ import { BlurBackground } from '../../components';
 export default function LandingScreen({ navigation }) {
     return (
         <BlurBackground>
+            <View style={styles.logoContainer}>
+                <Image
+                    style={styles.logo}
+                    source={require('../../../assets/yoga_mom.png')}
+                />
+            </View>
             <View style={styles.container}>
                 <Text style={styles.titleText}>
                     FIT

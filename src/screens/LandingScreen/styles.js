@@ -11,12 +11,25 @@ export default StyleSheet.create({
     },
     titleText: {
         fontFamily: 'Avenir-Heavy',
-        fontSize: 180,
+        fontSize: 100,
         color: COLORS.ORANGE,
     },
     titleNumber: {
         fontFamily: 'Avenir-Black',
         color: COLORS.RED,
+    },
+    logoContainer: {
+        flex: 1,
+        marginHorizontal: 20,
+        marginTop: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: COLORS.WHITE,
+        borderRadius: 20,
+    },
+    logo: {
+        width: 450,
+        height: 450,
     },
     subText: {
         fontFamily: 'Avenir-Light',
