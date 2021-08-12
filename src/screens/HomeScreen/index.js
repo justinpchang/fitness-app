@@ -1,7 +1,11 @@
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import Header from '../../components/Header';
+import {
+    BlurBackground,
+    Header,
+    Title,
+} from '../../components';
 import styles from './styles';
 import useAuthStore from '../../stores/AuthStore';
 import { signOut } from '../../utils/AuthUtils';
@@ -12,7 +16,7 @@ export default function HomeScreen({ navigation }) {
     const user = useAuthStore((state) => state.user);
 
     return (
-        <>
+        <BlurBackground opacity={0.07}>
             <Header navigation={navigation} />
             <View style={styles.container}>
                 <Text style={styles.firstName}>
@@ -92,6 +96,6 @@ export default function HomeScreen({ navigation }) {
                     </>
                 )}
             </View>
-        </>
+        </BlurBackground>
     );
 }

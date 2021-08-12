@@ -13,7 +13,7 @@ export default StyleSheet.create({
         height: 500,
         width: 500,
         borderRadius: 500,
-        backgroundColor: COLORS.PURPLE + '20',
+        backgroundColor: COLORS.PURPLE,
     },
     orange: {
         position: 'absolute',
@@ -22,7 +22,7 @@ export default StyleSheet.create({
         height: 600,
         width: 600,
         borderRadius: 300,
-        backgroundColor: COLORS.ORANGE + '20',
+        backgroundColor: COLORS.ORANGE,
     },
     red: {
         position: 'absolute',
@@ -31,7 +31,7 @@ export default StyleSheet.create({
         height: 700,
         width: 700,
         borderRadius: 600,
-        backgroundColor: COLORS.RED + '20',
+        backgroundColor: COLORS.RED,
     },
     blue: {
         position: 'absolute',
@@ -40,7 +40,7 @@ export default StyleSheet.create({
         height: 600,
         width: 600,
         borderRadius: 600,
-        backgroundColor: COLORS.BLUE + '20',
+        backgroundColor: COLORS.BLUE,
     },
     blur: {
         position: 'absolute',

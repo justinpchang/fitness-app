@@ -4,7 +4,7 @@ import { COLORS } from '../../constants';
 export default StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: COLORS.GREY[0],
+        //backgroundColor: COLORS.GREY[0],
         paddingLeft: 50,
         paddingRight: 30,
     },
@@ -24,7 +24,7 @@ export default StyleSheet.create({
         flex: 1,
     },
     navButton: {
-        backgroundColor: COLORS.GREY[0],
+        //backgroundColor: COLORS.GREY[0],
         color: COLORS.GREY[4],
         marginTop: 10,
     },
@@ -32,24 +32,5 @@ export default StyleSheet.create({
         backgroundColor: COLORS.GREY[1],
         color: COLORS.GREY[4],
         marginBottom: 120,
-    },
-
-
-    title: {
-        color: 'black',
-        fontSize: 24,
-    },
-    button: {
-        height: 47,
-        borderRadius: 5,
-        backgroundColor: '#788eec',
-        paddingHorizontal: 10,
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: 20,
-    },
-    buttonText: {
-        color: 'white',
-        fontSize: 16,
     },
 });
